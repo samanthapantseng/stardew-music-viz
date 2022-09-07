@@ -1,4 +1,3 @@
-//<<<<<<< HEAD
 /* Tecnológico de Costa Rica
  Escuela de Diseño Industrial
  D7 Visual - Tarea 3 Music Visualization
