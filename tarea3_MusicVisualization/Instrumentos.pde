@@ -68,7 +68,7 @@ void aura1() {
     bandaActual = 30;
     if (i>bandaActual-10 && i <bandaActual+10) {
       //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-      float ancho = fftLog.getBand(i) * 50;
+      float ancho = fftLog.getBand(i) * 100;
       float alto = fftLog.getBand(i) * 100;
       float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
       colorDeFondo = color (250, 85, 85, transparencia); // color base 219,42,67 o #637CAD
@@ -79,7 +79,7 @@ void aura1() {
     
     bandaActual = 130;
     if (i>bandaActual-10 && i <bandaActual+10) {
-      float ancho = fftLog.getBand(i) * 50;
+      float ancho = fftLog.getBand(i) * 100;
       float alto = fftLog.getBand(i) * 100;
       float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
       colorDeFondo = color (30, 85, 85, transparencia); // color base 219,42,67 o #637CAD
@@ -115,7 +115,7 @@ void aura2() {
     bandaActual = 200;
     if (i>bandaActual-10 && i <bandaActual+10) {
       //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-      float ancho = fftLog.getBand(i) * 50;
+      float ancho = fftLog.getBand(i) * 100;
       float alto = fftLog.getBand(i) * 100;
       float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
       colorDeFondo = color (250, 85, 85, transparencia); // color base 219,42,67 o #637CAD
@@ -126,7 +126,7 @@ void aura2() {
     
     bandaActual = 60;
     if (i>bandaActual-10 && i <bandaActual+10) {
-      float ancho = fftLog.getBand(i) * 50;
+      float ancho = fftLog.getBand(i) * 100;
       float alto = fftLog.getBand(i) * 100;
       float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
       colorDeFondo = color (30, 85, 85, transparencia); // color base 219,42,67 o #637CAD

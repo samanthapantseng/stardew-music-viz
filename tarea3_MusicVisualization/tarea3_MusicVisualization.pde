@@ -9,7 +9,7 @@
  */
 import ddf.minim.analysis.*;
 import ddf.minim.*;
-PImage instrucciones;
+PImage instrucciones, sax1, cello1, maraca1;
 
 Minim minim; // declara la instancia de la biblioteca
 AudioPlayer cancion; // declara la variable que contendrá la canción
@@ -34,6 +34,12 @@ void setup() {
   cancionprincipal = new Frecuencias(minim.loadFile("jazzParis.mp3", 1024));
   cancionintro = new Frecuencias(minim.loadFile("Presentacion.mp3", 1024));
   
+  sax1 = loadImage("sax1.png");
+  cello1 = loadImage("cello1.png");
+  maraca1 = loadImage("maraca1.png");
+  
+  
+  
   mainCharacter = new MainCharacter();
   
 }
@@ -54,6 +60,15 @@ void draw(){
   mainCharacter.staticFranklin();
   
   
+  imageMode(CENTER);
+  
+  image (sax1,width*3/6,height*1/3);
+  image (cello1,width*1/6,height*1/3);
+  image (maraca1,width*5/6,height*1/3);
+  
+  sax1.resize(10*width/68,10*width/68);
+  cello1.resize(10*width/68,10*width/68);
+  maraca1.resize(10*width/68,10*width/68);
 }
 
 
