@@ -51,9 +51,9 @@ void draw(){
   
   
     //de estas solo se puede usar una al mismo tiempo
-   cancionprincipal.aura1();
+   //cancionprincipal.aura1();
    
-   // cancionintro.aura2(); descomentar esta y comentar la anteriores para ver las frecuencias de la intro
+   cancionintro.aura2(); //descomentar esta y comentar la anteriores para ver las frecuencias de la intro
   
   
   mainCharacter.dibujar();
