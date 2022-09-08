@@ -39,7 +39,7 @@ void setup() {
   cancionPrincipal = new Frecuencia(minim.loadFile("jazzParis.mp3", 1024));
   cancionIntro = new Frecuencia(minim.loadFile("Presentacion.mp3", 1024));
 
-  escena = 2;
+  escena = 1;
 
   baile = new int[8];
 
@@ -111,10 +111,10 @@ void draw() {
     image (cello1, width*1/6, height*1/3);
     image (maraca1, width*5/6, height*1/3);
     
-    if (!cancionIntro.cancion.isPlaying()) {
-      escena = 1;
-      delay(2000);
-    }
+    //if (!cancionIntro.cancion.isPlaying()) {
+    //  escena = 1;
+    //  delay(2000);
+    //}
   }
 }
 
