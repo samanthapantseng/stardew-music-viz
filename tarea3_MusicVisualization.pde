@@ -10,7 +10,7 @@
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 
-PImage instrucciones, sax1, cello1, maraca1;
+PImage instrucciones, sax1, cello1, maraca1, escenarioPrincipal;
 int escena;
 
 int[] baile;
@@ -59,21 +59,22 @@ void setup() {
   sax1 = loadImage("sax1.png");
   cello1 = loadImage("cello1.png");
   maraca1 = loadImage("maraca1.png");
+  
+  escenarioPrincipal = loadImage("escenarioPrincipal.png");
 
   mainCharacter = new MainCharacter();
 
-  sax1.resize(10*width/68, 10*width/68);
-  cello1.resize(10*width/68, 10*width/68);
-  maraca1.resize(10*width/68, 10*width/68);
+  sax1.resize(11*width/68, 0);
+  cello1.resize(11*width/68, 0);
+  maraca1.resize(11*width/68, 0);
+  
+  escenarioPrincipal.resize(0, 13*width/68);
 }
 
 void draw() {
   background(#000000);
 
   imageMode(CENTER);
-
-  mainCharacter.dibujar();
-  mainCharacter.staticFranklin();
 
   // solo mainCharacter
   if (escena == 1) {
@@ -90,9 +91,11 @@ void draw() {
   if (escena == 2) {
     
     cancionIntro.aura2();
-    image (sax1, width*3/6, height*1/3);
-    image (cello1, width*1/6, height*1/3);
-    image (maraca1, width*5/6, height*1/3);
+    image (sax1, width*2/4, height*1/4);
+    image (cello1, width*1/4, height*1/4);
+    image (sax1, width*3/4, height*1/4); // TO DO va maraca aca
+    
+    image (escenarioPrincipal, width*2/4, height*2/3);
     
     if (!cancionIntro.cancion.isPlaying()) {
       fill(#ffffff);
@@ -107,15 +110,18 @@ void draw() {
   if (escena == 3) {
 
     cancionPrincipal.aura1();
-    image (sax1, width*3/6, height*1/3);
-    image (cello1, width*1/6, height*1/3);
-    image (maraca1, width*5/6, height*1/3);
+    image (sax1, width*2/4, height*1/3);
+    image (cello1, width*1/4, height*1/3);
+    image (sax1, width*3/4, height*1/3); // TO DO va maraca aca
     
     //if (!cancionIntro.cancion.isPlaying()) {
     //  escena = 1;
     //  delay(2000);
     //}
   }
+  
+  mainCharacter.dibujar();
+  mainCharacter.staticFranklin();
 }
 
 void keyPressed() {

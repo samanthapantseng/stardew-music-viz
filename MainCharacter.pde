@@ -13,8 +13,8 @@ class MainCharacter {
   boolean danceUp;
   boolean danceDown;
   boolean staticFranklin;
-  int w = 10*width/68; // largo de la foto
-  int h = 10*width/68; // alto de la foto
+  int w = 8*width/68; // largo de la foto
+  int h = 8*width/68; // alto de la foto
 
 
   public MainCharacter() {
@@ -29,8 +29,11 @@ class MainCharacter {
     franklin_down.resize(w, h);
     franklin_estatico.resize(w, h);
 
-    px = (34* width/68)-(franklin_estatico.width/2);
-    py = (40* height/68)-(franklin_estatico.width/2);
+    px = width/2;
+    py = height*2/3 - 1*width/64;
+
+    //px = (34* width/68)-(franklin_estatico.width/2);
+    //py = (40* height/68)-(franklin_estatico.width/2);
   }
   void dibujar() {
 
