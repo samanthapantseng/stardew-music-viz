@@ -22,11 +22,11 @@ FFT fftLog; // objeto que hace el análisis de las frecuencias logarítmicas
 FFT fftLin; // objeto que hace el análisis de las frecuencias lineales
 AudioMetaData metaDatos; // objeto para obtener datos de la canción
 
-Frecuencias cancionprincipal;
-Frecuencias cancionintro;
+Frecuencia cancionPrincipal;
+Frecuencia cancionIntro;
 
 MainCharacter mainCharacter;
-Frecuencias frecuencias;
+Frecuencia frecuencias;
 
 void setup() {
 
@@ -36,8 +36,8 @@ void setup() {
   smooth();
   rectMode(CENTER);
 
-  cancionprincipal = new Frecuencias(minim.loadFile("jazzParis.mp3", 1024));
-  cancionintro = new Frecuencias(minim.loadFile("Presentacion.mp3", 1024));
+  cancionPrincipal = new Frecuencia(minim.loadFile("jazzParis.mp3", 1024));
+  cancionIntro = new Frecuencia(minim.loadFile("Presentacion.mp3", 1024));
 
   escena = 1;
 
@@ -80,22 +80,35 @@ void draw() {
     
     if (paso == 8) {
       escena = 2;
+      delay(2000); //delay en millis
+      cancionIntro.cancion.play();
     }
   }
 
   // presentacion musicos
   if (escena == 2) {
-    cancionintro.aura2();
+    
+    cancionIntro.aura2();
     image (sax1, width*3/6, height*1/3);
     image (cello1, width*1/6, height*1/3);
     image (maraca1, width*5/6, height*1/3);
     
+    if (!cancionIntro.cancion.isPlaying()) {
+      fill(#ffffff);
+      textSize(0.8*width/68);
+      textAlign(CENTER);
+      text("press space to start the party", width/2, 2*height/68);
+    
+    }
   }
 
   // cancion
   if (escena == 3) {
 
-    cancionprincipal.aura1();
+    cancionPrincipal.aura1();
+    image (sax1, width*3/6, height*1/3);
+    image (cello1, width*1/6, height*1/3);
+    image (maraca1, width*5/6, height*1/3);      
   }
 }
 
@@ -159,5 +172,13 @@ void keyPressed() {
     }
   } else {
     mainCharacter.clearDown();
+  }
+  
+  if (key == ' ') {
+    if (escena == 2) {
+      escena = 3;
+      cancionIntro.cancion.pause();
+      cancionPrincipal.cancion.play();
+    }
   }
 }

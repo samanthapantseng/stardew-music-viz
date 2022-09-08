@@ -1,7 +1,7 @@
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 
-class Frecuencias {
+class Frecuencia {
 
   int posicion=0;
   int duracion=0;
@@ -19,7 +19,7 @@ class Frecuencias {
   float actualMax = 0;
 
 
-  public Frecuencias(AudioPlayer _cancion) {
+  public Frecuencia(AudioPlayer _cancion) {
 
     minim = new Minim(this);
 
@@ -42,7 +42,6 @@ class Frecuencias {
   }
 
   void aura1() {
-    cancion.play();
     fftLog.forward( cancion.mix );
 
     // calcula linealmente las frecuencias en el canal mixto
@@ -89,7 +88,6 @@ class Frecuencias {
   }
 
   void aura2() {
-    cancion.play();
     fftLog.forward( cancion.mix );
 
     // calcula linealmente las frecuencias en el canal mixto
