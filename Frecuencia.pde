@@ -62,7 +62,7 @@ class Frecuencia {
         
         colorDeFondo = color (200, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*1/6, height*1/3, ancho, alto);
+        rect(width*1/4, height*1/4, ancho, alto);
         //imprimaValoresMaximos (i, bandaActual);
       }
       
@@ -82,11 +82,11 @@ class Frecuencia {
         float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
         colorDeFondo = color (250, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*5/6, height*1/3, ancho, alto);
+        rect(width*2/4, height*1/4, ancho, alto);
         //imprimaValoresMaximos (i, bandaActual);
       }
       
-      // sax---------------------
+      // maracas---------------------
       bandaActual = 130;
       if (i>bandaActual-10 && i <bandaActual+10) {
         float ancho = fftLog.getBand(i) * 100;
@@ -94,7 +94,7 @@ class Frecuencia {
         float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
         colorDeFondo = color (30, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*3/6, height*1/3, ancho, alto);
+        rect( width*3/4, height*1/4, ancho, alto);
       } // fin del ciclo FOR de visualización del gráfico por logaritmo
     }
   }
@@ -124,7 +124,7 @@ class Frecuencia {
         float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
         colorDeFondo = color (200, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*1/6, height*1/3, ancho, alto);
+        rect(width*1/4, height*1/4, ancho, alto);
         //imprimaValoresMaximos (i, bandaActual);
       }
       }
@@ -139,10 +139,10 @@ class Frecuencia {
         float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
         colorDeFondo = color (250, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*5/6, height*1/3, ancho, alto);
+        rect(width*3/4, height*1/4, ancho, alto);
         //imprimaValoresMaximos (i, bandaActual);
       }
-
+        // sax ---------------------
       bandaActual = 60;
       if (i>bandaActual-10 && i <bandaActual+10) {
         float ancho = fftLog.getBand(i) * 100;
@@ -150,7 +150,7 @@ class Frecuencia {
         float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
         colorDeFondo = color (30, 85, 85, transparencia); // color base 219,42,67 o #637CAD
         fill(colorDeFondo);
-        rect(width*3/6, height*1/3, ancho, alto);
+        rect(width*2/4, height*1/4, ancho, alto);
       } // fin del ciclo FOR de visualización del gráfico por logaritmo
     }
   }
