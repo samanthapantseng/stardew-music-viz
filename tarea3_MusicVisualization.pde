@@ -10,11 +10,11 @@
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 
-PImage instrucciones, sax1, cello1, maraca1, escenarioPrincipal;
+PImage instrucciones, sax1, cello1, maraca1, escenarioPrincipal, escenarioTramposo;
 int escena;
 
 int[] baile;
-int paso;
+int paso, cortinaW1, cortinaW2;
 
 Minim minim; // declara la instancia de la biblioteca
 AudioPlayer cancion; // declara la variable que contendrá la canción
@@ -59,16 +59,21 @@ void setup() {
   sax1 = loadImage("sax1.png");
   cello1 = loadImage("cello1.png");
   maraca1 = loadImage("maraca1.png");
-  
+
   escenarioPrincipal = loadImage("escenarioPrincipal.png");
+  escenarioTramposo = loadImage("escenarioTramposo.png");
 
   mainCharacter = new MainCharacter();
 
   sax1.resize(11*width/68, 0);
   cello1.resize(11*width/68, 0);
   maraca1.resize(11*width/68, 0);
-  
+
   escenarioPrincipal.resize(0, 13*width/68);
+  escenarioTramposo.resize(0, 13*width/68);
+
+  cortinaW1 = width/2;
+  cortinaW2 = width/2;
 }
 
 void draw() {
@@ -78,31 +83,48 @@ void draw() {
 
   // solo mainCharacter
   if (escena == 1) {
-    
+
+    image (sax1, width*2/4, height*1/4);
+    image (cello1, width*1/4, height*1/4);
+    image (sax1, width*3/4, height*1/4); // TO DO va maraca aca
+
+    image (escenarioPrincipal, width*2/4, height*2/3);
+
+    rectMode(CORNER);
+    fill(#000000);
+    rect(0, 0, cortinaW1, height);
+    rect(cortinaW2, 0, width/2, height);
+    rectMode(CENTER);
+
+    //image (escenarioTramposo, width*2/4, height*2/3);
+
     if (paso == 8) {
-      escena = 2;
-      paso = 0;
-      delay(2000); //delay en millis
-      cancionIntro.cancion.play();
+      cortinaW1-=5;
+      cortinaW2+=5;
+
+      if (cortinaW1 <= 0) {
+        escena = 2;
+        paso = 0;
+        cancionIntro.cancion.play(0);
+      }
     }
   }
 
   // presentacion musicos
   if (escena == 2) {
-    
+
     cancionIntro.aura2();
     image (sax1, width*2/4, height*1/4);
     image (cello1, width*1/4, height*1/4);
     image (maraca1, width*3/4, height*1/4); // TO DO va maraca aca
     
     image (escenarioPrincipal, width*2/4, height*2/3);
-    
+
     if (!cancionIntro.cancion.isPlaying()) {
       fill(#ffffff);
       textSize(0.8*width/68);
       textAlign(CENTER);
       text("press space to start the party", width/2, 2*height/68);
-    
     }
   }
 
@@ -112,14 +134,28 @@ void draw() {
     cancionPrincipal.aura1();
     image (sax1, width*2/4, height*1/4);
     image (cello1, width*1/4, height*1/4);
-    image (maraca1, width*3/4, height*1/4); // TO DO va maraca aca
-    
-    //if (!cancionIntro.cancion.isPlaying()) {
-    //  escena = 1;
-    //  delay(2000);
-    //}
+    image (sax1, width*3/4, height*1/4); // TO DO va maraca aca
+
+    image (escenarioPrincipal, width*2/4, height*2/3);
+
+    rectMode(CORNER);
+    fill(#000000);
+    rect(0, 0, cortinaW1, height);
+    rect(cortinaW2, 0, width/2, height);
+    rectMode(CENTER);
+
+    //image (escenarioTramposo, width*2/4, height*2/3);
+
+    if (!cancionPrincipal.cancion.isPlaying()) {
+      cortinaW1+=5;
+      cortinaW2-=5;
+
+      if (cortinaW1 >= width/2) {
+        escena = 1;
+      }
+    }
   }
-  
+
   mainCharacter.dibujar();
   mainCharacter.staticFranklin();
 }
@@ -185,12 +221,12 @@ void keyPressed() {
   } else {
     mainCharacter.clearDown();
   }
-  
+
   if (key == ' ') {
     if (escena == 2) {
       escena = 3;
       cancionIntro.cancion.pause();
-      cancionPrincipal.cancion.play();
+      cancionPrincipal.cancion.play(0);
     }
   }
 }
