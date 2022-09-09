@@ -107,7 +107,7 @@ void draw() {
 
     image (sax1, width*2/4, height*1/4);
     image (cello1, width*1/4, height*1/4);
-    image (sax1, width*3/4, height*1/4); // TO DO va maraca aca
+    image (maraca1, width*3/4, height*1/4); 
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
@@ -161,7 +161,7 @@ void draw() {
     cancionIntro.aura2();
     image (sax1, width*2/4, height*1/4);
     image (cello1, width*1/4, height*1/4);
-    image (maraca1, width*3/4, height*1/4); // TO DO va maraca aca
+    image (maraca1, width*3/4, height*1/4);
     
     image (escenarioPrincipal, width*2/4, height*2/3);
 
@@ -179,7 +179,7 @@ void draw() {
     cancionPrincipal.aura1();
     image (sax1, width*2/4, height*1/4);
     image (cello1, width*1/4, height*1/4);
-    image (sax1, width*3/4, height*1/4); // TO DO va maraca aca
+    image (maraca1, width*3/4, height*1/4); 
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
