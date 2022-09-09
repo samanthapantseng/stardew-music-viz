@@ -281,8 +281,8 @@ void draw() {
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
-    image (dancer[0], width*13/32, height*2/3);
-    image (dancer[0], width*19/32, height*2/3);
+    image (dancer[movimientoBaile], width*13/32, height*2/3);
+    image (dancer[movimientoBaile], width*19/32, height*2/3);
     
     image (titulo_bass, width*8/32, height*1.15/3);
     titulo_bass.resize(9*width/68, 0);
