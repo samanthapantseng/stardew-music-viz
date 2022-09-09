@@ -10,12 +10,19 @@
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 
-PImage instrucciones, sax1, sax2, sax3, cello1, cello2, cello3, maraca1, maraca2, maraca3, escenarioPrincipal, escenarioTramposo;
+PImage instrucciones, escenarioPrincipal, escenarioTramposo;
+
+PImage[] sax;
+PImage[] maraca;
+PImage[] cello;
+
 PImage paso_01, paso_02, paso_03, paso_04, paso_05, paso_06, paso_07, paso_08, paso_00;
 int escena;
 
 int[] baile;
 int paso, cortinaW1, cortinaW2;
+
+int movimientoBaile;
 
 Minim minim; // declara la instancia de la biblioteca
 AudioPlayer cancion; // declara la variable que contendrá la canción
@@ -77,34 +84,39 @@ void setup() {
   paso_08.resize(34*width/68, 0);
   paso_00.resize(34*width/68, 0);
 
-  sax1 = loadImage("sax1.png");
-  sax2 = loadImage("sax2.png");
-  sax3 = loadImage("sax3.png");
+  sax = new PImage[3];
+  sax[0] = loadImage("sax1.png");
+  sax[1] = loadImage("sax2.png");
+  sax[2] = loadImage("sax3.png");
 
-  cello1 = loadImage("cello1.png");
-  cello2 = loadImage("cello2.png");
-  cello3 = loadImage("cello3.png");
+  cello = new PImage[3];
+  cello[0] = loadImage("cello1.png");
+  cello[1] = loadImage("cello2.png");
+  cello[2] = loadImage("cello3.png");
 
-  maraca1 = loadImage("maraca1.png");
-  maraca2 = loadImage("maraca2.png");
-  maraca3 = loadImage("maraca3.png");
+  maraca = new PImage[3];
+  maraca[0] = loadImage("maraca1.png");
+  maraca[1] = loadImage("maraca2.png");
+  maraca[2] = loadImage("maraca3.png");
+
+  movimientoBaile = 0;
 
   escenarioPrincipal = loadImage("escenarioPrincipal.png");
   escenarioTramposo = loadImage("escenarioTramposo.png");
 
   mainCharacter = new MainCharacter();
 
-  sax1.resize(11*width/68, 0);
-  sax2.resize(10*width/68, 10*width/68);
-  sax3.resize(10*width/68, 10*width/68);
+  sax[0].resize(11*width/68, 0);
+  sax[1].resize(11*width/68, 0);
+  sax[2].resize(11*width/68, 0);
 
-  cello1.resize(11*width/68, 0);
-  cello2.resize(10*width/68, 10*width/68);
-  cello3.resize(10*width/68, 10*width/68);
+  cello[0].resize(11*width/68, 0);
+  cello[1].resize(11*width/68, 0);
+  cello[2].resize(11*width/68, 0);
 
-  maraca1.resize(11*width/68, 0);
-  maraca2.resize(10*width/68, 10*width/68);
-  maraca3.resize(10*width/68, 10*width/68);
+  maraca[0].resize(11*width/68, 0);
+  maraca[1].resize(11*width/68, 0);
+  maraca[2].resize(11*width/68, 0);
 
   escenarioPrincipal.resize(0, 13*width/68);
   escenarioTramposo.resize(0, 13*width/68);
@@ -121,9 +133,9 @@ void draw() {
   // solo mainCharacter
   if (escena == 1) {
 
-    image (sax1, width*2/4, height*1/4);
-    image (cello1, width*1/4, height*1/4);
-    image (maraca1, width*3/4, height*1/4);
+    image (sax[movimientoBaile], width*2/4, height*1/4);
+    image (cello[movimientoBaile], width*1/4, height*1/4);
+    image (maraca[movimientoBaile], width*3/4, height*1/4);
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
@@ -177,10 +189,18 @@ void draw() {
   // presentacion musicos
   if (escena == 2) {
 
+    if (cancionIntro.cancion.mix.level() >  0.1) {
+      movimientoBaile = 1;
+    } else if (cancionIntro.cancion.mix.level() ==  0) {
+      movimientoBaile = 0;
+    } else {
+      movimientoBaile = 2;
+    }
+
     cancionIntro.aura2();
-    image (sax1, width*2/4, height*1/4);
-    image (cello1, width*1/4, height*1/4);
-    image (maraca1, width*3/4, height*1/4);
+    image (sax[movimientoBaile], width*2/4, height*1/4);
+    image (cello[movimientoBaile], width*1/4, height*1/4);
+    image (maraca[movimientoBaile], width*3/4, height*1/4);
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
@@ -195,10 +215,18 @@ void draw() {
   // cancion
   if (escena == 3) {
 
+    if (cancionPrincipal.cancion.mix.level() > 0.1) {
+      movimientoBaile = 1;
+    } else if (cancionPrincipal.cancion.mix.level() ==  0) {
+      movimientoBaile = 0;
+    } else {
+      movimientoBaile = 2;
+    }
+
     cancionPrincipal.aura1();
-    image (sax1, width*2/4, height*1/4);
-    image (cello1, width*1/4, height*1/4);
-    image (maraca1, width*3/4, height*1/4);
+    image (sax[movimientoBaile], width*2/4, height*1/4);
+    image (cello[movimientoBaile], width*1/4, height*1/4);
+    image (maraca[movimientoBaile], width*3/4, height*1/4);
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
