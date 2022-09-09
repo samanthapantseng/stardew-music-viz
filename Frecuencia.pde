@@ -61,8 +61,8 @@ class Frecuencia {
         int bandaActual = 5;
         if (i>bandaActual-5 && i <bandaActual+5) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
 
           colorDeFondo = color (32, 78, 54, transparencia); // color base 219,42,67 o #637CAD
@@ -76,8 +76,8 @@ class Frecuencia {
 
         if (i>bandaActual-7 && i <bandaActual+7) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
           colorDeFondo = color (56, 76, 58, transparencia); // color base 219,42,67 o #637CAD
           fill(colorDeFondo);
@@ -88,8 +88,8 @@ class Frecuencia {
         if (cancion.position() > 6500) {
           bandaActual = 130;
           if (i>bandaActual-10 && i <bandaActual+10) {
-            float ancho = fftLog.getBand(i) * 100;
-            float alto = fftLog.getBand(i) * 100;
+            float ancho = fftLog.getBand(i) * 120;
+            float alto = fftLog.getBand(i) * 120;
             float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
             colorDeFondo = color (216, 76, 58, transparencia); // color base 219,42,67 o #637CAD
             fill(colorDeFondo);
@@ -106,8 +106,8 @@ class Frecuencia {
         int bandaActual = 5;
         if (i>bandaActual-5 && i <bandaActual+5) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
 
           colorDeFondo = color (32, 78, 54, transparencia); // color base 219,42,67 o #637CAD
@@ -121,8 +121,8 @@ class Frecuencia {
 
         if (i>bandaActual-7 && i <bandaActual+7) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
           colorDeFondo = color (56, 76, 58, transparencia); // color base 219,42,67 o #637CAD
           fill(colorDeFondo);
@@ -133,8 +133,8 @@ class Frecuencia {
         if ((cancion.position() < 48000) || (cancion.position() > 52000)) {
           bandaActual = 60;
           if (i>bandaActual-10 && i <bandaActual+10) {
-            float ancho = fftLog.getBand(i) * 100;
-            float alto = fftLog.getBand(i) * 100;
+            float ancho = fftLog.getBand(i) * 120;
+            float alto = fftLog.getBand(i) * 120;
             float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
             colorDeFondo = color (216, 76, 58, transparencia); // color base 219,42,67 o #637CAD
             fill(colorDeFondo);
@@ -165,8 +165,8 @@ class Frecuencia {
         int bandaActual = 5;
         if (i>bandaActual-5 && i <bandaActual+5) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
           colorDeFondo = color (32, 78, 54, transparencia); // color base 219,42,67 o #637CAD
           fill(colorDeFondo);
@@ -180,8 +180,8 @@ class Frecuencia {
         int bandaActual = 200;
         if (i>bandaActual-10 && i <bandaActual+10) {
           //if (maximo < fftLog.getBand(i)) maximo = fftLog.getBand(i);
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
           colorDeFondo = color (56, 76, 58, transparencia); // color base 219,42,67 o #637CAD
           fill(colorDeFondo);
@@ -191,8 +191,8 @@ class Frecuencia {
         // sax ---------------------
         bandaActual = 60;
         if (i>bandaActual-10 && i <bandaActual+10) {
-          float ancho = fftLog.getBand(i) * 100;
-          float alto = fftLog.getBand(i) * 100;
+          float ancho = fftLog.getBand(i) * 120;
+          float alto = fftLog.getBand(i) * 120;
           float transparencia = map (fftLog.getBand(i), 0, 3, 1, 0.5);
           colorDeFondo = color (216, 76, 58, transparencia); // color base 219,42,67 o #637CAD
           fill(colorDeFondo);

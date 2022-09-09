@@ -34,9 +34,11 @@ AudioMetaData metaDatos; // objeto para obtener datos de la canción
 
 Frecuencia cancionPrincipal;
 Frecuencia cancionIntro;
+Frecuencia frecuencias;
+
+AudioSample hiHat;
 
 MainCharacter mainCharacter;
-Frecuencia frecuencias;
 
 void setup() {
 
@@ -45,12 +47,14 @@ void setup() {
   minim = new Minim(this);
   smooth();
   rectMode(CENTER);
-  
+
   font = createFont("Stardew_Valley.otf", width/40);
   textFont(font);
 
   cancionPrincipal = new Frecuencia(minim.loadFile("jazzParis.mp3", 1024));
   cancionIntro = new Frecuencia(minim.loadFile("Presentacion.mp3", 1024));
+
+  hiHat = minim.loadSample("hiHat.mp3");
 
   escena = 1;
 
@@ -103,12 +107,11 @@ void setup() {
   maraca[0] = loadImage("maraca1.png");
   maraca[1] = loadImage("maraca2.png");
   maraca[2] = loadImage("maraca3.png");
-  
+
   dancer = new PImage[3];
   dancer[0] = loadImage("dancer1.png");
   dancer[1] = loadImage("dancer2.png");
   dancer[2] = loadImage("dancer3.png");
-
 
   movimientoBaile = 0;
 
@@ -128,11 +131,11 @@ void setup() {
   maraca[0].resize(11*width/68, 0);
   maraca[1].resize(11*width/68, 0);
   maraca[2].resize(11*width/68, 0);
-  
+
   dancer[0].resize(11*width/68, 0);
   dancer[1].resize(11*width/68, 0);
   dancer[2].resize(11*width/68, 0);
-  
+
   escenarioPrincipal.resize(0, 13*width/68);
   escenarioTramposo.resize(0, 13*width/68);
 
@@ -151,25 +154,25 @@ void draw() {
     image (sax[movimientoBaile], width*2/4, height*1/4);
     image (cello[movimientoBaile], width*1/4, height*1/4);
     image (maraca[movimientoBaile], width*3/4, height*1/4);
-    
-   
 
     image (escenarioPrincipal, width*2/4, height*2/3);
-    
-     image (dancer[0], width*13/32, height*2/3);
+
+    image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
-    
+
     rectMode(CORNER);
     fill(#000000);
     rect(0, 0, cortinaW1, height);
     rect(cortinaW2, 0, width/2, height);
     rectMode(CENTER);
-    
+
     // instrucciones
-    textSize(width/32);
-    textAlign(CENTER);
-    fill(#FFFFFF, 100);
-    text("start the groove", width/2, height/5); 
+    if (paso < 8) {
+      textSize(width/32);
+      textAlign(CENTER);
+      fill(#FFFFFF, 100);
+      text("start the groove", width/2, height/5);
+    }
 
     //image (escenarioTramposo, width*2/4, height*2/3);
     if (paso == 0) {
@@ -229,14 +232,14 @@ void draw() {
     image (maraca[movimientoBaile], width*3/4, height*1/4);
 
     image (escenarioPrincipal, width*2/4, height*2/3);
-    
+
     image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
 
 
     if (!cancionIntro.cancion.isPlaying()) {
       fill(#ffffff);
-      textSize(1*width/68);
+      textSize(2*width/68);
       textAlign(CENTER);
       text("press space to start the party", width/2, 62*height/68);
     }
@@ -259,7 +262,7 @@ void draw() {
     image (maraca[movimientoBaile], width*3/4, height*1/4);
 
     image (escenarioPrincipal, width*2/4, height*2/3);
-    
+
     image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
 
@@ -294,6 +297,7 @@ void keyPressed() {
 
     if (escena == 1 && baile[paso] == 2) {
       paso++;
+      hiHat.trigger();
       // TO DO: pintar la flecha de la grafica como confirmacion de que hizo el paso correcto
     } else {
       paso = 0;
@@ -309,6 +313,7 @@ void keyPressed() {
 
     if (escena == 1 && baile[paso] == 1) {
       paso++;
+      hiHat.trigger();
       // TO DO: pintar la flecha de la grafica como confirmacion de que hizo el paso correcto
     } else {
       paso = 0;
@@ -324,6 +329,7 @@ void keyPressed() {
 
     if (escena == 1 && baile[paso] == 3) {
       paso++;
+      hiHat.trigger();
       // TO DO: pintar la flecha de la grafica como confirmacion de que hizo el paso correcto
     } else {
       paso = 0;
@@ -339,6 +345,7 @@ void keyPressed() {
 
     if (escena == 1 && baile[paso] == 4) {
       paso++;
+      hiHat.trigger();
       // TO DO: pintar la flecha de la grafica como confirmacion de que hizo el paso correcto
     } else {
       paso = 0;
