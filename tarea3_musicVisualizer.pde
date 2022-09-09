@@ -11,6 +11,7 @@ import ddf.minim.analysis.*;
 import ddf.minim.*;
 
 PImage instrucciones, escenarioPrincipal, escenarioTramposo;
+PFont font;
 
 PImage[] sax;
 PImage[] maraca;
@@ -44,6 +45,9 @@ void setup() {
   minim = new Minim(this);
   smooth();
   rectMode(CENTER);
+  
+  font = createFont("Stardew_Valley.otf", width/40);
+  textFont(font);
 
   cancionPrincipal = new Frecuencia(minim.loadFile("jazzParis.mp3", 1024));
   cancionIntro = new Frecuencia(minim.loadFile("Presentacion.mp3", 1024));
@@ -160,6 +164,12 @@ void draw() {
     rect(0, 0, cortinaW1, height);
     rect(cortinaW2, 0, width/2, height);
     rectMode(CENTER);
+    
+    // instrucciones
+    textSize(width/32);
+    textAlign(CENTER);
+    fill(#FFFFFF, 100);
+    text("start the groove", width/2, height/5); 
 
     //image (escenarioTramposo, width*2/4, height*2/3);
     if (paso == 0) {
@@ -226,9 +236,9 @@ void draw() {
 
     if (!cancionIntro.cancion.isPlaying()) {
       fill(#ffffff);
-      textSize(0.8*width/68);
+      textSize(1*width/68);
       textAlign(CENTER);
-      text("press space to start the party", width/2, 2*height/68);
+      text("press space to start the party", width/2, 62*height/68);
     }
   }
 
