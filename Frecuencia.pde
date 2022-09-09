@@ -53,7 +53,7 @@ class Frecuencia {
     for (int i = 0; i < fftLog.specSize(); i++) {
 
       textSize(24);
-      fill(#FFFFFF);
+      fill(#000000);
       text(cancion.position(), width/2, height/2);
       // cancion primera parte
       if (cancion.position() <  23000) {
@@ -157,7 +157,7 @@ class Frecuencia {
       noStroke();
 
       textSize(24);
-      fill(#FFFFFF);
+      fill(#000000);
       text(cancion.position(), width/2, height/2);
 
       // cello ---------------------
