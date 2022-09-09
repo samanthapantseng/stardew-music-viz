@@ -11,6 +11,7 @@ import ddf.minim.analysis.*;
 import ddf.minim.*;
 
 PImage instrucciones, sax1, cello1, maraca1, escenarioPrincipal, escenarioTramposo;
+PImage paso_01, paso_02, paso_03, paso_04, paso_05, paso_06, paso_07, paso_08, paso_00;
 int escena;
 
 int[] baile;
@@ -55,6 +56,26 @@ void setup() {
   baile[7] = 4;
 
   paso = 0;
+  
+  paso_01 = loadImage("paso_01.png");
+  paso_02 = loadImage("paso_02.png");
+  paso_03 = loadImage("paso_03.png");
+  paso_04 = loadImage("paso_04.png");
+  paso_05 = loadImage("paso_05.png");
+  paso_06 = loadImage("paso_06.png");
+  paso_07 = loadImage("paso_07.png");
+  paso_08 = loadImage("paso_08.png");
+  paso_00 = loadImage("paso_00.png");
+
+  paso_01.resize(34*width/68, 0);
+  paso_02.resize(34*width/68, 0);
+  paso_03.resize(34*width/68, 0);
+  paso_04.resize(34*width/68, 0);
+  paso_05.resize(34*width/68, 0);
+  paso_06.resize(34*width/68, 0);
+  paso_07.resize(34*width/68, 0);
+  paso_08.resize(34*width/68, 0);
+  paso_00.resize(34*width/68, 0);
 
   sax1 = loadImage("sax1.png");
   cello1 = loadImage("cello1.png");
@@ -97,8 +118,32 @@ void draw() {
     rectMode(CENTER);
 
     //image (escenarioTramposo, width*2/4, height*2/3);
-
+  if (paso == 0) { 
+   image (paso_00, width/2, height/3);
+   }
+  if (paso == 1) { 
+   image (paso_01, width/2, height/3);
+   }
+   if (paso == 2) { 
+   image (paso_02, width/2, height/3);
+   }
+   if (paso == 3) { 
+   image (paso_03, width/2, height/3);
+   }
+   if (paso == 4) { 
+   image (paso_04, width/2, height/3);
+   }
+   if (paso == 5) { 
+   image (paso_05, width/2, height/3);
+   }
+   if (paso == 6) { 
+   image (paso_06, width/2, height/3);
+   }
+   if (paso == 7) { 
+   image (paso_07, width/2, height/3);
+   }
     if (paso == 8) {
+      image (paso_08, width/2, height/3);
       cortinaW1-=5;
       cortinaW2+=5;
 
