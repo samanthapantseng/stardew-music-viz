@@ -11,6 +11,7 @@ import ddf.minim.analysis.*;
 import ddf.minim.*;
 
 PImage instrucciones, escenarioPrincipal, escenarioTramposo;
+PImage titulo_bass, titulo_sax, titulo_maraca;
 PFont font;
 
 PImage[] sax;
@@ -112,6 +113,13 @@ void setup() {
   dancer[0] = loadImage("dancer1.png");
   dancer[1] = loadImage("dancer2.png");
   dancer[2] = loadImage("dancer3.png");
+  
+  titulo_bass = loadImage("titulo_bass.png");
+  titulo_bass.resize(9*width/68, 0);
+  titulo_sax = loadImage("titulo_sax.png");
+  titulo_sax.resize(9*width/68, 0);
+  titulo_maraca = loadImage("titulo_maraca.png");
+  titulo_maraca.resize(9*width/68, 0);
 
   movimientoBaile = 0;
 
@@ -235,6 +243,15 @@ void draw() {
 
     image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
+    
+    image (titulo_bass, width*8/32, height*1.15/3);
+   // titulo_bass.resize(9*width/68, 0);
+    
+    image (titulo_sax, width*16/32, height*1.15/3);
+    //titulo_sax.resize(9*width/68, 0);
+    
+    image (titulo_maraca, width*24/32, height*1.15/3);
+    //titulo_maraca.resize(9*width/68, 0);
 
 
     if (!cancionIntro.cancion.isPlaying()) {
@@ -244,7 +261,8 @@ void draw() {
       text("press space to start the party", width/2, 62*height/68);
     }
   }
-
+  mainCharacter.dibujar();
+  mainCharacter.staticFranklin();
   // cancion
   if (escena == 3) {
 
@@ -265,6 +283,15 @@ void draw() {
 
     image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
+    
+    image (titulo_bass, width*8/32, height*1.15/3);
+    titulo_bass.resize(9*width/68, 0);
+    
+    image (titulo_sax, width*16/32, height*1.15/3);
+    titulo_sax.resize(9*width/68, 0);
+    
+    image (titulo_maraca, width*24/32, height*1.15/3);
+    titulo_maraca.resize(9*width/68, 0);
 
 
     rectMode(CORNER);
@@ -283,10 +310,21 @@ void draw() {
         escena = 1;
       }
     }
+    mainCharacter.dibujar();
+  mainCharacter.staticFranklin();
+  
+    colorMode(HSB, 360, 100, 100,100);
+    float hue = map(cancionPrincipal.cancion.mix.level(),0,1,1,360); // mapea el HUE contra el volumen
+    //color colorLuz = color(hue, 100, 100,80);
+    fill(hue, 100, 100,20);
+    rect(width*2/4, height*1/4, 11*width/68, 11*width/68);
+    rect(width*1/4, height*1/4, 11*width/68, 11*width/68);
+    rect(width*3/4, height*1/4, 11*width/68, 11*width/68);
+    rect(width*2/4, height*2/3, 24*width/68, 13*width/68);
+    colorMode(HSB, 360, 100, 100,1);
   }
 
-  mainCharacter.dibujar();
-  mainCharacter.staticFranklin();
+
 }
 
 void keyPressed() {

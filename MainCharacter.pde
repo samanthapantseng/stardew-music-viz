@@ -32,8 +32,6 @@ class MainCharacter {
     px = width/2;
     py = height*2/3 - 1*width/64;
 
-    //px = (34* width/68)-(franklin_estatico.width/2);
-    //py = (40* height/68)-(franklin_estatico.width/2);
   }
   void dibujar() {
 
