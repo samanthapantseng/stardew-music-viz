@@ -291,6 +291,10 @@ void draw() {
 
 void keyPressed() {
 
+  if (paso == 8) {
+    return;
+  }
+  
   // RIGHT
   if (keyCode == RIGHT) {
     mainCharacter.danceRight();
