@@ -165,8 +165,8 @@ void draw() {
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
-    image (dancer[0], width*13/32, height*2/3);
-    image (dancer[0], width*19/32, height*2/3);
+    image (dancer[movimientoBaile], width*13/32, height*2/3);
+    image (dancer[movimientoBaile], width*19/32, height*2/3);
 
     rectMode(CORNER);
     fill(#000000);
@@ -241,6 +241,7 @@ void draw() {
 
     image (escenarioPrincipal, width*2/4, height*2/3);
 
+<<<<<<< Updated upstream
     image (dancer[0], width*13/32, height*2/3);
     image (dancer[0], width*19/32, height*2/3);
     
@@ -252,6 +253,10 @@ void draw() {
     
     image (titulo_maraca, width*24/32, height*1.15/3);
     //titulo_maraca.resize(9*width/68, 0);
+=======
+    image (dancer[movimientoBaile], width*13/32, height*2/3);
+    image (dancer[movimientoBaile], width*19/32, height*2/3);
+>>>>>>> Stashed changes
 
 
     if (!cancionIntro.cancion.isPlaying()) {
@@ -283,6 +288,7 @@ void draw() {
 
     image (dancer[movimientoBaile], width*13/32, height*2/3);
     image (dancer[movimientoBaile], width*19/32, height*2/3);
+<<<<<<< Updated upstream
     
     image (titulo_bass, width*8/32, height*1.15/3);
     titulo_bass.resize(9*width/68, 0);
@@ -292,6 +298,8 @@ void draw() {
     
     image (titulo_maraca, width*24/32, height*1.15/3);
     titulo_maraca.resize(9*width/68, 0);
+=======
+>>>>>>> Stashed changes
 
 
     rectMode(CORNER);
